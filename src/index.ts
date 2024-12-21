@@ -2,7 +2,7 @@
 
 import express from "express";
 
-const app = express();
+const app: express.Application = express();
 
 const port = process.env["PORT"] || 8080;
 
@@ -15,12 +15,12 @@ app.listen(port, () => {
 });
 
 // Homepage
-app.get("/", (req, res) => {
+app.get("/", (req: express.Request, res: express.Response) => {
   res.status(200).send("Hello World!");
 });
 
 // GET
-app.get("/get", (req, res) => {
+app.get("/get", (req: express.Request, res: express.Response) => {
   res
     .status(200)
     .header("x-get-header", "get-header-value")
@@ -28,7 +28,7 @@ app.get("/get", (req, res) => {
 });
 
 //POST
-app.post("/post", (req, res) => {
+app.post("/post", (req: express.Request, res: express.Response) => {
   res
     .status(200)
     .header("x-post-header", "post-header-value")
@@ -36,7 +36,7 @@ app.post("/post", (req, res) => {
 });
 
 //PUT
-app.put("/put", (req, res) => {
+app.put("/put", (req: express.Request, res: express.Response) => {
   res
     .status(200)
     .header("x-put-header", "put-header-value")
@@ -44,7 +44,7 @@ app.put("/put", (req, res) => {
 });
 
 //PATCH
-app.patch("/patch", (req, res) => {
+app.patch("/patch", (req: express.Request, res: express.Response) => {
   res
     .status(200)
     .header("x-patch-header", "patch-header-value")
@@ -52,6 +52,6 @@ app.patch("/patch", (req, res) => {
 });
 
 // Delete
-app.delete("/delete", (req, res) => {
+app.delete("/delete", (req: express.Request, res: express.Response) => {
   res.status(200).header("x-delete-header", "delete-header-value").send();
 });
